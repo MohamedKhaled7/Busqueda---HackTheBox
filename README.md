@@ -1,6 +1,7 @@
 ## Busqueda Writeup -- HackTheBox ##
   
 **This is a walkthrough to get root access on a Linux machine called Busqueda from Hack The Box**
+
 • Add the IP address of the machine from Hack the Box website to your hosts file 
 
 **sudo gedit /etc/hosts**
